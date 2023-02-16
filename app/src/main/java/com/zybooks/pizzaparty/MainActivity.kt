@@ -1,10 +1,10 @@
-/*
-CS646-Lab-1-Pizza Party App
+/**
+*CS646-Lab-1-Pizza Party App
  */
 package com.zybooks.pizzaparty
 
-/*
-Import all packages
+/**
+*Import all packages
  */
 
 import android.os.Bundle
@@ -15,10 +15,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.ceil
 
-/*
-No. of slices in each pizza
+/**
+*No. of slices in each pizza
  */
 const val SLICES_PER_PIZZA = 8
+
+/**
+*Main class to calculate the total no. of pizzas
+ */
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,20 +39,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculateClick(view: View) {
-        /*
-        Get the text into the EditText
+        /**
+        *Get the text into the EditText
         */
 
         val numAttendStr = numAttendEditText.text.toString()
 
-/*
- Convert into  integer
+/**
+ *Convert into  integer
  */
 
         val numAttend = numAttendStr.toInt()
 
-/*
-calculates how many slices each person will eat on an avg
+/**
+*calculates how many slices each person will eat on an avg
 */
 
         val slicesPerPerson = when (howHungryRadioGroup.checkedRadioButtonId) {
@@ -57,8 +61,9 @@ calculates how many slices each person will eat on an avg
             else -> 4
         }
 
-/*
-Calculate and show the number of pizzas needed for the party*/
+/**
+*Calculates and displays the number of pizzas needed for the party
+ */
 
         val totalpizza = ceil(numAttend * slicesPerPerson / SLICES_PER_PIZZA.toDouble()).toInt()
         numPizzasTextView.text = "Total pizzas: $totalpizza"
